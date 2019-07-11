@@ -1,5 +1,40 @@
+html, body {
+  height: 100%;
+  display: inline-block;
+  /* color: #61DAFB; */
+  /* background: #2D2D2D; */
+  
+    line-height: 1.4em;
+    background: #f5f5f5;
+    color: #4d4d4d;
+    min-width: 230px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-left: 50px;
+    margin-left: 250px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 300;
+}
+.heading {
+  font: 50px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 300;
+  line-height: 1.4em;
+  text-align: center;
+} 
+
+
+.first {
+  display: inline-block;
+  justify-content: center;
+}
+
 .App {
   text-align: center;
+  display:inline-block;
+  border-style: none;
 }
 
 .App-logo {
@@ -17,6 +52,96 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.textplace {
+  display:inline;
+  height: 17px;
+  width: 378px;
+}
+
+input {
+  margin-right: 10px;
+}
+
+.checkbox {
+  border-radius: 100%;
+}
+
+.inputText{
+  display: inline-block;
+  position: relative;
+}
+
+.tasktab {
+  background: #fff;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  text-align: left;
+  display: inline-block;
+  justify-content: center;
+  box-sizing: content-box;
+  width: 450px;
+  white-space: wrap;
+  margin: 0 auto;
+  margin-left: 0px;
+  margin-bottom: 0px;
+  border-style: ridge;
+  background-color: lightgrey; 
+}
+
+.Edit {
+
+display: inline-flex;
+/* float: right; */
+position: relative;
+width: 350px;
+margin-top: -1px;
+}
+
+.tasktab2 {
+  background: transparent;
+  text-align: left;
+  height: 24px;
+  width: 450px;
+  white-space: wrap;
+  border-style: none;
+  border-bottom: 1px solid dimgray;
+}
+
+.toggle{
+  float: left;
+  display: inline;
+}
+
+button {
+  float: right;
+  margin-top: 3px;
+  margin-right: 2px;
+}
+
+.Completed {
+  display: inline;
+  color: red;
+  text-decoration: line-through;
+}
+
+.Pending {
+  display: inline;
+  color: black;
+}
+
+ul {
+  list-style: none;
+  justify-content: center;
+}
+
+.Destroy{
+  float: right; 
+  border: none;
+  box-sizing: content-box;
+  /*border-style: ridge; */
+  background-color: lightgrey; 
 }
 
 .App-link {
