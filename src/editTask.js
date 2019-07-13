@@ -5,25 +5,20 @@ export default class EditTask extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      editable: false,
+      editable: false
     };
     this.onDoubleClick = this.onDoubleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
-    console.log(this.props.currTask.text);
-    if(this.props.currTask.text !==''){
-    // this.props.onSubmit({
-    //   id: this.props.currTask.id,
-    //   text: this.props.currTask.text,
-    //   isCompleted: this.props.currTask.isCompleted
-    // });
-    this.setState({
+    if (this.props.currTask.text !== "") {
+      this.setState({
         editable: false
-    })
-  }}
+      });
+    }
+  };
 
   onDoubleClick() {
     this.setState({ editable: true });
@@ -42,7 +37,7 @@ export default class EditTask extends React.Component {
       );
     } else {
       return (
-        <div className= "Edit">
+        <div className='Edit'>
           <form onSubmit={this.handleSubmit}>
             <input
               className='textplace'

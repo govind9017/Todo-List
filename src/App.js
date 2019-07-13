@@ -45,13 +45,11 @@ export default class App extends React.Component {
     this.setState({ todoToShow: s });
   }
 
-  deleteAll(){
-    console.log(this.state.aallTask,"allTask");
-    this.setState({allTask: this.state.allTask.filter(item=>
-            item.isCompleted===false
-        )
-  });
-}
+  deleteAll() {
+    this.setState({
+      allTask: this.state.allTask.filter(item => item.isCompleted === false)
+    });
+  }
 
   selectAll() {
     let s = this.state.allTask.some(function(val) {
@@ -73,7 +71,7 @@ export default class App extends React.Component {
       });
     }
   }
-  getTodos(){
+  getTodos() {
     let todos = [];
     if (this.state.todoToShow === "All") {
       todos = this.state.allTask;
@@ -86,16 +84,15 @@ export default class App extends React.Component {
   }
 
   handleChange = (currTask, event) => {
-    console.log(event.target.value, currTask);
     this.setState({
       allTask: this.state.allTask.filter(item => {
         if (item.id === currTask.id) {
           item.text = event.target.value;
         }
-          return item;
+        return item;
       })
     });
-  }
+  };
 
   // updateTask = (todo) => {
   //   this.setState({
@@ -104,11 +101,11 @@ export default class App extends React.Component {
   // }
 
   renderList = () => {
-    const todos  = this.getTodos();
+    const todos = this.getTodos();
     let todoList = [];
     todos.map((task, index) => {
       todoList.push(
-        <div keys = {task.id} className='tasktab2' >
+        <div keys={task.id} className='tasktab2'>
           <input
             type='checkBox'
             checked={task.isCompleted}
@@ -136,8 +133,7 @@ export default class App extends React.Component {
     return todoList;
   };
   render() {
-    // console.log(this.props.tasks, this.state.allTask, "props and state")
-    const todos  = this.getTodos();
+    const todos = this.getTodos();
 
     return (
       <div>
@@ -150,8 +146,7 @@ export default class App extends React.Component {
             </button>
             <AddTask onSubmit={this.addTask} />
             <button onClick={this.deleteAll}>
-              {""}
-              ✘{""}
+              {""}✘{""}
             </button>
           </div>
           {this.renderList()}
@@ -171,26 +166,3 @@ export default class App extends React.Component {
     );
   }
 }
-
-//
-// this.state = {
-//     tasks: [
-//         {id:'task1', name:'task1', isCompleted: false}
-//     ]
-// }
-
-// var newTask= {
-//     id: '',
-//     name: e.target.value,
-//     isCompleted: false
-// }
-
-// this.setState({
-//     tasks:[...this.state.tasks, newTask]
-// })
-
-// newState = [
-//     ...this.state.tasks.splice(0,1),
-//     newUpdated
-//     ...this.state.tasks.splice(index, lengh)
-// ]
