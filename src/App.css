@@ -1,26 +1,27 @@
 html,
 body {
-  height: 100%;
-  display: inline-block;
-
+  /* height: 100%; */
+  display: inline-flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+  font: 24px "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.4em;
   background: #f5f5f5;
   color: #4d4d4d;
-  min-width: 230px;
-  max-width: 600px;
-  margin: 0 auto;
-  padding-left: 50px;
-  margin-left: 250px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 300;
 }
+
 .heading {
-  font: 50px "Helvetica Neue", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 300;
-  line-height: 1.4em;
+  /* font: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+  font-size: 100px;
+  font-weight: 100;
+  color: rgba(175, 47, 47, 0.15);
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
   text-align: center;
 }
 
@@ -29,42 +30,99 @@ body {
   justify-content: center;
 }
 
-.App {
+/* .App {
   text-align: center;
   display: inline-block;
   border-style: none;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+} */
 
 .textplace {
+  border: none;
   display: inline;
-  height: 17px;
-  width: 378px;
+  font-size: 20px;
+  color: #4d4d4d;
+  height: 34px;
+  width: 370px;
+}
+
+input[type="text"]:focus {
+  outline: none; /* oranges! yey */
+}
+
+.edittextplace {
+  border: none;
+  display: inline;
+  font-size: 20px;
+  height: 38px;
+  width: 370px;
+}
+
+.Edit input[type="text"]:focus {
+  outline: 2px solid black;
+  font-size: 20px;
+  font-family: inherit;
+  font-weight: inherit;
 }
 
 input {
   margin-right: 10px;
 }
 
-.checkbox {
-  border-radius: 100%;
+.round {
+  float: left;
+  position: relative;
+  margin-left: 5px;
 }
+
+.round label {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 28px;
+  left: 0;
+  position: absolute;
+  top: 4px;
+  width: 28px;
+}
+
+.round label:after {
+  border: 2px solid #66bb6a;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 6px;
+  left: 7px;
+  opacity: 0;
+  position: absolute;
+  top: 8px;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+
+.round input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.round input[type="checkbox"]:checked + label {
+  background-color: white;
+  border-color: lightgreen;
+}
+
+.round input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
+
+label {
+  position: relative;
+}
+
+/* .checkbox {
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  -webkit-appearance: none;
+} */
 
 .inputText {
   display: inline-block;
@@ -75,7 +133,7 @@ input {
   background: #fff;
   position: relative;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
-  text-align: left;
+  /* text-align: left;
   display: inline-block;
   justify-content: center;
   box-sizing: content-box;
@@ -85,7 +143,8 @@ input {
   margin-left: 0px;
   margin-bottom: 0px;
   border-style: ridge;
-  background-color: lightgrey;
+  background-color: white; */
+  margin: 130px 0 40px 0;
 }
 
 .Edit {
@@ -93,39 +152,75 @@ input {
   /* float: right; */
   position: relative;
   width: 350px;
-  margin-top: -1px;
+  margin-top: 0px;
+  margin-left: 20px;
+}
+.details {
+  /* margin-top: 4px; */
+  justify-content: center;
+  text-align: left;
+  vertical-align: sub;
+  font-size: 15px;
 }
 
 .tasktab2 {
   background: transparent;
   text-align: left;
-  height: 24px;
+  height: 40px;
   width: 450px;
   white-space: wrap;
   border-style: none;
-  border-bottom: 1px solid dimgray;
+  border-bottom: 1px solid lightgray;
 }
 
 .toggle {
   float: left;
+  font-weight: bold;
+  /* content: '❯'; */
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
   display: inline;
+  font-size: 20px;
+  border: none;
+  margin-top: 6px;
+  background: transparent;
 }
 
 button {
   float: right;
-  margin-top: 3px;
-  margin-right: 2px;
+  border: none;
+  outline: none;
+  justify-content: center;
+  font-size: 15px;
+  color: grey;
+  margin-top: 4px;
+}
+
+.destroyAll {
+  float: right;
+  border: none;
+  justify-content: center;
+  font-size: 20px;
+  margin-top: 6px;
 }
 
 .Completed {
+  position: relative;
+  padding-left: 25px;
+  align-content: center;
+  vertical-align: sub;
   display: inline;
   color: red;
   text-decoration: line-through;
 }
 
 .Pending {
+  padding-left: 25px;
+  position: relative;
+  vertical-align: sub;
+  justify-content: center;
   display: inline;
-  color: black;
+  color: #4d4d4d;
 }
 
 ul {
@@ -134,22 +229,14 @@ ul {
 }
 
 .Destroy {
-  float: right;
+  display: inline;
+  /* float: right; */
+  outline: none;
+  /* content: '×'; */
   border: none;
+  color: #cc9a9a;
+  font-size: 25px;
+  vertical-align: baseline;
   box-sizing: content-box;
-  /*border-style: ridge; */
-  background-color: lightgrey;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  background-color: transparent;
 }

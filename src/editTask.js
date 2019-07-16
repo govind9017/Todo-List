@@ -40,7 +40,7 @@ export default class EditTask extends React.Component {
         <div className='Edit'>
           <form onSubmit={this.handleSubmit}>
             <input
-              className='textplace'
+              className='edittextplace'
               type='text'
               value={this.props.currTask.text}
               onChange={this.props.handleChange.bind(null, this.props.currTask)}

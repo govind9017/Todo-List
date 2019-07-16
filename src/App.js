@@ -106,14 +106,17 @@ export default class App extends React.Component {
     todos.map((task, index) => {
       todoList.push(
         <div keys={task.id} className='tasktab2'>
-          <input
-            type='checkBox'
-            checked={task.isCompleted}
-            onChange={() => {
-              this.completedTask(task.id);
-            }}
-          />
-
+          <div className='round'>
+            <input
+              type='checkbox'
+              id={task.id}
+              checked={task.isCompleted}
+              onChange={() => {
+                this.completedTask(task.id);
+              }}
+            />
+            <label for={task.id} />
+          </div>
           <EditTask currTask={task} handleChange={this.handleChange} />
 
           <button
@@ -124,11 +127,10 @@ export default class App extends React.Component {
             }}
           >
             {" "}
-            X{" "}
+            x{" "}
           </button>
         </div>
       );
-      // todoList.push(todoItem);
     });
     return todoList;
   };
@@ -137,30 +139,31 @@ export default class App extends React.Component {
 
     return (
       <div>
-        <h1 className='heading'>Todos</h1>
+        <h1 className='heading'>todos</h1>
         <div className='tasktab'>
           <div className='tasktab2'>
             <button className='toggle' type='button' onClick={this.selectAll}>
               {" "}
-              ✓{" "}
+              ❯{" "}
             </button>
+
             <AddTask onSubmit={this.addTask} />
-            <button onClick={this.deleteAll}>
+            <button className='destroyAll' onClick={this.deleteAll}>
               {""}✘{""}
             </button>
           </div>
           {this.renderList()}
-          <label>
+          <div className='details'>
             {" "}
             {todos.filter(task => !task.isCompleted).length} items left{" "}
-          </label>
-          <button onClick={() => this.updateTodoToShow("All")}>All </button>
-          <button onClick={() => this.updateTodoToShow("Active")}>
-            Active{" "}
-          </button>
-          <button onClick={() => this.updateTodoToShow("Completed")}>
-            Completed{" "}
-          </button>
+            <button onClick={() => this.updateTodoToShow("All")}>All </button>
+            <button onClick={() => this.updateTodoToShow("Active")}>
+              Active{" "}
+            </button>
+            <button onClick={() => this.updateTodoToShow("Completed")}>
+              Completed{" "}
+            </button>
+          </div>
         </div>
       </div>
     );
