@@ -190,6 +190,7 @@ input {
 button {
   /* float: right; */
   outline: none;
+  /* background-color: transparent; */
   align-items: center;
   font-size: 15px;
   color: grey;
@@ -205,7 +206,6 @@ button {
 }
 
 .Completed {
-  position: absolute;
   padding-left: 25px;
   padding-top: 5px;
   line-height: 0.8;
@@ -217,11 +217,10 @@ button {
 
 .Pending {
   padding-left: 25px;
-  position: absolute;
   line-height: 0.8;
-  /* align-items: center; */
+  align-content: center;
+  vertical-align: sub;
   padding-top: 5px;
-  justify-content: center;
   color: #4d4d4d;
 }
 
