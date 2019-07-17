@@ -117,18 +117,26 @@ export default class App extends React.Component {
             />
             <label for={task.id} />
           </div>
-          <EditTask currTask={task} handleChange={this.handleChange} />
+          <EditTask
+            currTask={task}
+            handleChange={this.handleChange}
+            deleteTask={this.delTask}
+          />
 
-          <button
-            className='Destroy'
+          {/* <button
+            className='destroy'
+            id = {task.id}
             type='button'
             onClick={() => {
               this.delTask(task.id);
             }}
           >
+            <span>
+            {" "}x
             {" "}
-            x{" "}
-          </button>
+            </span>
+          </button> */}
+        
         </div>
       );
     });
@@ -139,7 +147,9 @@ export default class App extends React.Component {
 
     return (
       <div>
+        {/* <section class="todoapp"> */}
         <h1 className='heading'>todos</h1>
+
         <div className='tasktab'>
           <div className='tasktab2'>
             <button className='toggle' type='button' onClick={this.selectAll}>
@@ -148,23 +158,29 @@ export default class App extends React.Component {
             </button>
 
             <AddTask onSubmit={this.addTask} />
-            <button className='destroyAll' onClick={this.deleteAll}>
-              {""}✘{""}
-            </button>
           </div>
           {this.renderList()}
           <div className='details'>
             {" "}
             {todos.filter(task => !task.isCompleted).length} items left{" "}
-            <button onClick={() => this.updateTodoToShow("All")}>All </button>
+            <button
+              className='filter'
+              onClick={() => this.updateTodoToShow("All")}
+            >
+              <span>All</span>
+            </button>
             <button onClick={() => this.updateTodoToShow("Active")}>
-              Active{" "}
+              <span>Active</span>
             </button>
             <button onClick={() => this.updateTodoToShow("Completed")}>
-              Completed{" "}
+              <span>Completed</span>
+            </button>
+            <button className='destroyAll' onClick={this.deleteAll}>
+              {""}Clear completed{""}
             </button>
           </div>
         </div>
+        {/* </section> */}
       </div>
     );
   }

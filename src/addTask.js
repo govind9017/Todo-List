@@ -33,6 +33,7 @@ export default class AddTask extends React.Component {
           <input
             className='textplace'
             type='text'
+            placeholder='What needs to be done?'
             name='newTask'
             value={this.state.newTask}
             onChange={this.handleChange}

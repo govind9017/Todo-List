@@ -27,13 +27,23 @@ export default class EditTask extends React.Component {
   render() {
     if (this.state.editable === false) {
       return (
-        <label
-          className={this.props.currTask.isCompleted ? "Completed" : "Pending"}
-          onDoubleClick={this.onDoubleClick}
-        >
-          {" "}
-          {this.props.currTask.text}{" "}
-        </label>
+        <div className='showDelete'>
+          <label
+            className={
+              this.props.currTask.isCompleted ? "Completed" : "Pending"
+            }
+            onDoubleClick={this.onDoubleClick}
+          >
+            {" "}
+            {this.props.currTask.text}{" "}
+          </label>
+          <button
+            className='destroy'
+            onClick={() => {
+              this.props.deleteTask(this.props.currTask.id);
+            }}
+          />
+        </div>
       );
     } else {
       return (
